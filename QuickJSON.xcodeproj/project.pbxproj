@@ -10,6 +10,8 @@
 		CE731E7F1333641900F09D91 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE731E7E1333641900F09D91 /* GenerateThumbnailForURL.m */; };
 		CE731E831333646E00F09D91 /* quicklookjson.c in Sources */ = {isa = PBXBuildFile; fileRef = CE731E811333646E00F09D91 /* quicklookjson.c */; };
 		CE731E841333646E00F09D91 /* quicklookjson.h in Headers */ = {isa = PBXBuildFile; fileRef = CE731E821333646E00F09D91 /* quicklookjson.h */; };
+		CE731E86133367F800F09D91 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE731E85133367F800F09D91 /* Cocoa.framework */; };
+		CE731E881333681000F09D91 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE731E871333681000F09D91 /* WebKit.framework */; };
 		CEEC2AC5133331E000823F4B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC4133331E000823F4B /* QuickLook.framework */; };
 		CEEC2AC7133331E000823F4B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC6133331E000823F4B /* ApplicationServices.framework */; };
 		CEEC2AC9133331E000823F4B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC8133331E000823F4B /* CoreServices.framework */; };
@@ -23,6 +25,8 @@
 		CE731E7E1333641900F09D91 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
 		CE731E811333646E00F09D91 /* quicklookjson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quicklookjson.c; sourceTree = "<group>"; };
 		CE731E821333646E00F09D91 /* quicklookjson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quicklookjson.h; sourceTree = "<group>"; };
+		CE731E85133367F800F09D91 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CE731E871333681000F09D91 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CEEC2AC1133331E000823F4B /* QuickJSON.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJSON.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC2AC4133331E000823F4B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		CEEC2AC6133331E000823F4B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
@@ -44,6 +48,8 @@
 				CEEC2AC7133331E000823F4B /* ApplicationServices.framework in Frameworks */,
 				CEEC2AC9133331E000823F4B /* CoreServices.framework in Frameworks */,
 				CEEC2ACB133331E000823F4B /* CoreFoundation.framework in Frameworks */,
+				CE731E86133367F800F09D91 /* Cocoa.framework in Frameworks */,
+				CE731E881333681000F09D91 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +76,8 @@
 		CEEC2AC3133331E000823F4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE731E871333681000F09D91 /* WebKit.framework */,
+				CE731E85133367F800F09D91 /* Cocoa.framework */,
 				CEEC2AC4133331E000823F4B /* QuickLook.framework */,
 				CEEC2AC6133331E000823F4B /* ApplicationServices.framework */,
 				CEEC2AC8133331E000823F4B /* CoreServices.framework */,
