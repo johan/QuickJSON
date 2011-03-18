@@ -1,7 +1,7 @@
 #include "quicklookjson.h"
 
-#define HTML_HEADER "<!DOCTYPE html><html style='margin: 0; padding: 0; white-space: pre; font-family: monospace;'><body style='margin: 0; padding: 0;'>"
-#define HTML_FOOTER "</body></html>"
+#define HTML_HEADER "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><style>body{font-family:sans-serif;}.prop{font-weight:700;}.null{color:red;}.bool,.num{color:blue;}.string{color:green;white-space:pre-wrap;}#error{-moz-border-radius:8px;border:1px solid #970000;background-color:#F7E8E8;margin:.5em;padding:.5em;}.errormessage{font-family:monospace;}#json{white-space:pre-wrap;font-family:monospace;font-size:1.1em;}h1{font-size:1.2em;}.callback{font-family:monospace;color:#A52A2A;}.folded > .content{display:none;}.folded.array:after{content:'[\002026 ]';/* [...] */}.folded.obj:after{content:'{\002026 }';/* {...} */}.folded{cursor:se-resize;}.unfolded{cursor:nw-resize;}</style><script></script></head><body _onload='init()'><script id='json' type='application/json'>"
+#define HTML_FOOTER "</script></body></html>"
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
