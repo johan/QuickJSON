@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE731E7F1333641900F09D91 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CE731E7E1333641900F09D91 /* GenerateThumbnailForURL.m */; };
+		CE731E831333646E00F09D91 /* quicklookjson.c in Sources */ = {isa = PBXBuildFile; fileRef = CE731E811333646E00F09D91 /* quicklookjson.c */; };
+		CE731E841333646E00F09D91 /* quicklookjson.h in Headers */ = {isa = PBXBuildFile; fileRef = CE731E821333646E00F09D91 /* quicklookjson.h */; };
 		CEEC2AC5133331E000823F4B /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC4133331E000823F4B /* QuickLook.framework */; };
 		CEEC2AC7133331E000823F4B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC6133331E000823F4B /* ApplicationServices.framework */; };
 		CEEC2AC9133331E000823F4B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2AC8133331E000823F4B /* CoreServices.framework */; };
 		CEEC2ACB133331E000823F4B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEC2ACA133331E000823F4B /* CoreFoundation.framework */; };
 		CEEC2AD1133331E000823F4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEEC2ACF133331E000823F4B /* InfoPlist.strings */; };
-		CEEC2AD4133331E000823F4B /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = CEEC2AD3133331E000823F4B /* GenerateThumbnailForURL.c */; };
 		CEEC2AD6133331E000823F4B /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = CEEC2AD5133331E000823F4B /* GeneratePreviewForURL.c */; };
 		CEEC2AD8133331E000823F4B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEEC2AD7133331E000823F4B /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE731E7E1333641900F09D91 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		CE731E811333646E00F09D91 /* quicklookjson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quicklookjson.c; sourceTree = "<group>"; };
+		CE731E821333646E00F09D91 /* quicklookjson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quicklookjson.h; sourceTree = "<group>"; };
 		CEEC2AC1133331E000823F4B /* QuickJSON.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJSON.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC2AC4133331E000823F4B /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		CEEC2AC6133331E000823F4B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
@@ -26,7 +31,6 @@
 		CEEC2ACE133331E000823F4B /* QuickJSON-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickJSON-Info.plist"; sourceTree = "<group>"; };
 		CEEC2AD0133331E000823F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEEC2AD2133331E000823F4B /* QuickJSON-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickJSON-Prefix.pch"; sourceTree = "<group>"; };
-		CEEC2AD3133331E000823F4B /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
 		CEEC2AD5133331E000823F4B /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
 		CEEC2AD7133331E000823F4B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,9 +81,11 @@
 		CEEC2ACC133331E000823F4B /* QuickJSON */ = {
 			isa = PBXGroup;
 			children = (
-				CEEC2AD3133331E000823F4B /* GenerateThumbnailForURL.c */,
+				CE731E7E1333641900F09D91 /* GenerateThumbnailForURL.m */,
 				CEEC2AD5133331E000823F4B /* GeneratePreviewForURL.c */,
 				CEEC2AD7133331E000823F4B /* main.c */,
+				CE731E811333646E00F09D91 /* quicklookjson.c */,
+				CE731E821333646E00F09D91 /* quicklookjson.h */,
 				CEEC2ACD133331E000823F4B /* Supporting Files */,
 			);
 			path = QuickJSON;
@@ -102,6 +108,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE731E841333646E00F09D91 /* quicklookjson.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEC2AD4133331E000823F4B /* GenerateThumbnailForURL.c in Sources */,
 				CEEC2AD6133331E000823F4B /* GeneratePreviewForURL.c in Sources */,
 				CEEC2AD8133331E000823F4B /* main.c in Sources */,
+				CE731E7F1333641900F09D91 /* GenerateThumbnailForURL.m in Sources */,
+				CE731E831333646E00F09D91 /* quicklookjson.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
