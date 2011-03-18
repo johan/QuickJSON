@@ -1,6 +1,6 @@
 var JSONFormatter = (function() {
   var toString = Object.prototype.toString, re =
-    // This regex attempts to match a JSONP structure ("ws" includes Unicode ws)
+    // This regex attempts to match a JSONP structure (ws includes Unicode ws)
     // * optional leading ws
     // * callback name (any valid function name as per ECMA-262 Edition 3 specs)
     // * optional ws
@@ -49,7 +49,7 @@ var JSONFormatter = (function() {
 
   // Wrap a fragment in a span of class className
   function span(value, className) {
-    return '<span class="'+ className +'">'+ html(value) +'</span>';
+    return '<span class=\''+ className +'\'>'+ html(value) +'</span>';
   }
 
   // Produce an error document for when parsing fails
@@ -63,13 +63,13 @@ var JSONFormatter = (function() {
   function html(s, isAttribute) {
     if (s == null) return '';
     s = (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    return isAttribute ? s.replace(/"/g, '&quot;') : s;
+    return isAttribute ? s.replace(/'/g, '&apos;') : s;
   }
 
   var js = JSON.stringify('\b\f\n\r\t').length === 12 ?
     function saneJSEscaper(s, noQuotes) {
       s = html(JSON.stringify(s).slice(1, -1));
-      return noQuotes ? s : '"'+ s +'"';
+      return noQuotes ? s : '&quot;'+ s +'&quot;';
     }
   : function insaneEscaper(s, noQuotes) {
     // undo all damage of an \uXXXX-tastic Mozilla JSON serializer
@@ -90,7 +90,7 @@ var JSONFormatter = (function() {
                     '\\'+ had[ws]);
 
     s = html(s);
-    return noQuotes ? s : '"'+ s +'"';
+    return noQuotes ? s : '&quot;'+ s +'&quot;';
   };
 
   // conversion functions
@@ -110,9 +110,9 @@ var JSONFormatter = (function() {
 
       case 'string':
         if (/^(\w+):\/\/[^\s]+$/i.test(v)) {
-          output = '"<a href="'+ html(v, !!'attribute') +'">' +
-                     js(v, '!"') +
-                   '</a>"';
+          output = '&quot;<a href=\''+ html(v, !!'attribute') +'\'>' +
+                     js(v, 1) +
+                   '</a>&quot;';
         } else {
           output = '<span class=string>'+ js(v) +'</span>';
         }
@@ -143,7 +143,7 @@ var JSONFormatter = (function() {
         value(obj[key], indent, '<br\n/>');
     }
     if (!output) return '{}';
-    return '<span class="unfolded obj"><span class=content>' +
+    return '<span class=\'unfolded obj\'><span class=content>' +
              (nl ? nl + indent : '') +'{ '+ output +'<br\n/>' +
                               indent +'}</span></span>';
   }
@@ -155,7 +155,7 @@ var JSONFormatter = (function() {
       output += value(a[i], indent, '');
     }
     if (!output) return '[]';
-    return '<span class="unfolded array"><span class=content>' +
+    return '<span class=\'unfolded array\'><span class=content>' +
              (nl ? nl + indent : '') +'[ '+ output +'<br\n/>' +
                               indent +']</span></span>';
   }
