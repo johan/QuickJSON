@@ -1,9 +1,9 @@
 //==============================================================================
 //
-//	DO NO MODIFY THE CONTENT OF THIS FILE
+//  DO NO MODIFY THE CONTENT OF THIS FILE
 //
-//	This file contains the generic CFPlug-in code necessary for your generator
-//	To complete your generator implement the function in GenerateThumbnailForURL/GeneratePreviewForURL.c
+//  This file contains the generic CFPlug-in code necessary for your generator
+//  Implement the function in GenerateThumbnailForURL/GeneratePreviewForURL.c.
 //
 //==============================================================================
 
@@ -215,4 +215,3 @@ void *QuickLookGeneratorPluginFactory(CFAllocatorRef allocator,CFUUIDRef typeID)
         /* If the requested type is incorrect, return NULL. */
     return NULL;
 }
-
