@@ -23,9 +23,9 @@
 		CEEC2AC6133331E000823F4B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		CEEC2AC8133331E000823F4B /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		CEEC2ACA133331E000823F4B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		CEEC2ACE133331E000823F4B /* QuickJSON-Info.plist */ = {isa = PBXFileReference; path = "QuickJSON-Info.plist"; sourceTree = "<group>"; };
+		CEEC2ACE133331E000823F4B /* QuickJSON-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickJSON-Info.plist"; sourceTree = "<group>"; };
 		CEEC2AD0133331E000823F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CEEC2AD2133331E000823F4B /* QuickJSON-Prefix.pch */ = {isa = PBXFileReference; path = "QuickJSON-Prefix.pch"; sourceTree = "<group>"; };
+		CEEC2AD2133331E000823F4B /* QuickJSON-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickJSON-Prefix.pch"; sourceTree = "<group>"; };
 		CEEC2AD3133331E000823F4B /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
 		CEEC2AD5133331E000823F4B /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
 		CEEC2AD7133331E000823F4B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -278,6 +278,7 @@
 				CEEC2ADD133331E000823F4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
