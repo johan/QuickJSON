@@ -1,0 +1,39 @@
+#! /usr/bin/env node
+
+var jsmin = require('jsmin').jsmin
+  , ALL = 3, MOST = 2, KEEP_NL = 1
+  , LEVEL = ALL
+  , fs = require('fs')
+  , _ = require('underscore')
+  , files = _.uniq(process.argv.slice(2))
+  , count = files.length
+  ;
+
+if (files.length)
+  load(files.shift());
+
+function load(fn) {
+  fs.readFile(fn, 'utf-8', function gotFile(e, file) {
+    if (e) return fail(e, 'loading '+ fn);
+    return minify(fn, file);
+  });
+}
+
+function fail(e, when) {
+  console.error('jsmin error '+ when +': '+ e);
+  process.exit(1 + count - files.length);
+}
+
+function minify(fn, js) {
+  process.stdout.write(jsmin(js, LEVEL));
+  done();
+}
+
+function done(e, fn) {
+  if (e)
+    fail(e, 'saving '+ fn);
+  else if (files.length)
+    load(files.shift());
+  else
+    process.exit(0);
+}
