@@ -170,10 +170,9 @@ var JSONFormatter = (function() {
   JSONFormatter.init = function init(doc, css) {
     doc = doc || document;
     var head = doc.getElementsByTagName('head')[0] || doc.documentElement
-      , node = doc.getElementById('json-format') || doc.createElement('style')
-      , sbar = '                                                             ';
+      , node = doc.getElementById('json-format') || doc.createElement('style');
     if (node.id) return; else node.id = 'json-format';
-    node.textContent = css || ('.prop{font-weight:700;}.null{color:red;}.bool,.num{color:blue;}.string{color:green;white-space:pre-wrap;}.error{-moz-border-radius:8px;border:1px solid #970000;background-color:#F7E8E8;margin:.5em;padding:.5em;}.json{white-space:pre-wrap;font-family:monospace;font-size:1.1em;}h1{font-size:1.2em;}.callback{font-family:monospace;color:#A52A2A;}.folded *{position:absolute;color:transparent;height:0;width:0;outline:5px solid red;white-space:normal;top:-100000cm;left:-100000cm;}*.folded.array:before{content:"[\\002026 ]'+sbar+'";/* [...] */}.folded.obj:before{content:"{\\002026 }'+sbar+'";/* {...} */}.folded{background:#FFF;}.folded:hover{background:rgba(255,192,203,0.5);}.folded{cursor:se-resize;}.unfolded.hovered{background:rgba(255,192,203,0.5);}.unfolded{cursor:nw-resize;}');
+    node.textContent = css || ('.prop{font-weight:700;}.null{color:red;}.bool,.num{color:blue;}.string{color:green;white-space:pre-wrap;}.error{-moz-border-radius:8px;border:1px solid #970000;background-color:#F7E8E8;margin:.5em;padding:.5em;}.json{white-space:pre-wrap;font-family:monospace;font-size:1.1em;}h1{font-size:1.2em;}.callback{font-family:monospace;color:#A52A2A;}.folded *{position:absolute;color:transparent;height:0;width:0;outline:5px solid red;white-space:normal;top:-100000cm;left:-100000cm;}*.folded.array:before{content:"[\\002026 ]";/* [...] */}.folded.obj:before{content:"{\\002026 }";/* {...} */}.callback+.json>.folded:after{content:"";}.folded:after{content:"                                                             ";}.folded{background:#FFF;}.folded:hover{background:rgba(255,192,203,0.5);}.folded{cursor:se-resize;}.unfolded.hovered{background:rgba(255,192,203,0.5);}.unfolded{cursor:nw-resize;}');
     head.appendChild(node);
     doc.addEventListener('click', function folding(e) {
       var elem = e.target, is, is_json = elem;
