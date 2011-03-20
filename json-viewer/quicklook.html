@@ -3,6 +3,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="quicklook.js"></script>
+    <script>
+      function init() {
+        JSONFormatter.init();
+        var json = document.getElementById('json').textContent;
+        document.body.innerHTML = JSONFormatter(json);
+      }
+    </script>
   </head>
   <body onload="init()">
     <script id="json" type="application/json">
