@@ -1,0 +1,79 @@
+.prop {
+  font-weight: bold;
+}
+.null {
+  color:       red;
+}
+.bool, .num {
+  color:       blue;
+}
+.string {
+  color:       green;
+  white-space: pre-wrap;
+}
+
+h1 {
+  font-size:   1.2em;
+}
+.error {
+  -webkit-border-radius: 8px;
+  -moz-border-radius:    8px;
+  border-radius:         8px;
+  border:      1px solid #970000;
+  background:  #F7E8E8;
+  margin:      0.5em;
+  padding:     0.5em;
+}
+
+.json {
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size:   1.1em;
+}
+
+.callback {
+  font-family: monospace;
+  color:       #A52A2A;
+}
+
+.folded * {
+  position:    absolute;
+  color:       transparent;
+  height:      0;
+  width:       0;
+  outline:     5px solid red;
+  white-space: normal;
+  top:        -100000cm;
+  left:       -100000cm;
+}
+
+*.folded.array:before {
+  content: "[\002026 ]"; /* [...] */
+}
+.folded.obj:before {
+  content: "{\002026 }"; /* {...} */
+}
+
+.callback + .json > .folded:after {
+  content: "";
+}
+.folded:after {
+  content: "                                                             ";
+}
+
+.folded {
+  background: #FFF;
+}
+.folded:hover {
+  background: rgba(255,192,203,0.5);
+}
+
+.folded {
+  cursor:     se-resize;
+}
+.unfolded {
+  cursor:     nw-resize;
+}
+.unfolded.hovered {
+  background: rgba(255,192,203,0.5);
+}

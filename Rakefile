@@ -30,10 +30,35 @@ desc 'Generates the quicklook source code from the test web page.'
 file 'QuickJSON/quicklookjson.c' => FileList['json-viewer/quicklook.*'] do |t|
   announce t
 
-  # fetch the html, inlining and minifying <script> tags we find
+  # grab the leading and trailing portions and escape them to C strings
+  quicklook_html =~ /\A(.*)__JSON__(.*)\Z/m
+  ENV['HTML_HEADER'] = $1.to_json
+  ENV['HTML_FOOTER'] = $2.to_json
+
+  # move our C file template into place and perform __MAGIC__ expansion on it
+  cp 'json-viewer/quicklook.c', t.name
+  write_file t.name
+end
+
+# fetch the html, suck out whitespace, inline and minify scripts and stylesheets
+def quicklook_html
   cd 'json-viewer' do
     quicklook_html = IO.read('quicklook.html')
     dom = Hpricot.parse(quicklook_html)
+
+    # strip leading/trailing ws in text nodes, and consecutive mid-textnode ws
+    dom.search("*").each do |node|
+      node.content = node.content().strip.gsub(/\s+/, ' ') if node.text?
+    end
+
+    # inline and minify linked stylesheets
+    dom.search('link[@rel="stylesheet"][@href]').each do |link|
+      path = link.attributes['href']
+      css = IO.popen("../bin/cssmin #{Shellwords.escape(path)}") { |s| s.read }
+      link.swap("<style>#{css}</style>")
+    end
+
+    # inline script tags with minified versions of their content
     dom.search('script[@src]').each do |script|
       src = script.attributes['src']
       script.remove_attribute('src')
@@ -42,16 +67,8 @@ file 'QuickJSON/quicklookjson.c' => FileList['json-viewer/quicklook.*'] do |t|
           stdout.read.gsub(/\n/, ' ')
         end
     end
-
-    # next, grab the leading and trailing portions and escape them to C strings
-    dom.to_s =~ /\A(.*)__JSON__(.*)\Z/m
-    ENV['HTML_HEADER'] = $1.to_json
-    ENV['HTML_FOOTER'] = $2.to_json
+    return dom.to_s
   end
-
-  # move our C file template into place and perform __MAGIC__ expansion on it
-  cp 'json-viewer/quicklook.c', t.name
-  write_file t.name
 end
 
 def announce(task, action = 'building')
