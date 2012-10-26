@@ -19,7 +19,7 @@
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.github.johan.json</string>
+				<string>public.json</string>
 			</array>
 		</dict>
 	</array>
@@ -76,7 +76,7 @@
 			<key>UTTypeDescription</key>
 			<string>JSON File</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.github.johan.json</string>
+			<string>public.json</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>com.apple.ostype</key>
