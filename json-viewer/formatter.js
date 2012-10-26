@@ -1,22 +1,24 @@
 var JSONFormatter = (function() {
-  var toString = Object.prototype.toString, re =
-    // This regex attempts to match a JSONP structure ("ws" includes Unicode ws)
-    // * optional leading ws
-    // * callback name (any valid function name as per ECMA-262 Edition 3 specs)
-    // * optional ws
-    // * open parenthesis
-    // * optional ws
-    // * either { or [, the only two valid characters to start a JSON string
-    // * any character, any number of times
-    // * either } or ], the only two valid closing characters of a JSON string
-    // * optional trailing ws and semicolon
+  var toString    = Object.prototype.toString
+    , whitespace  = '[\s\u200B\uFEFF]*'
+    , is_jsonp_re = new RegExp // This regex attempts to match a JSONP structure
+      ( '^' + whitespace // optional leading ws
+      + '([\\w$\\[\\]\\.]+)' // callback name (function name; ECMA-262, 3rd ed.)
+      + whitespace +'\\('+ whitespace // open parenthesis, with optional ws
+      + '('
+       + '[\\[{]' // { or [, the only two valid characters to open JSON strings
+       + '[\\s\\S]*' // any character, any number of times (including newlines)
+       + '[\\]}]' // } or ], the only two valid close characters of JSON strings
+      + ')'
+      + whitespace +'\\)'+ whitespace // closing parenthesis, with optional ws
+      + '([\s\u200B\uFEFF;]*)$' // optional trailing ws and semicolon
+      );
     // (this of course misses anything that has comments, more than one callback
     // -- or otherwise requires modification before use by a proper JSON parser)
-    /^[\s\u200B\uFEFF]*([\w$\[\]\.]+)[\s\u200B\uFEFF]*\([\s\u200B\uFEFF]*([\[{][\s\S]*[\]}])[\s\u200B\uFEFF]*\)([\s\u200B\uFEFF;]*)$/m;
 
   function detectJSONP(s, url) {
     var js = s, cb = '', se = '', match;
-    if ((match = re.exec(s)) && 4 === match.length) {
+    if ((match = is_jsonp_re.exec(s)) && 4 === match.length) {
       cb = match[1];
       js = match[2];
       se = match[3].replace(/[^;]+/g, '');
