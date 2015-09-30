@@ -30,7 +30,7 @@ into `/Library/QuickLook/` (to install system-globally),
 or into `~/Library/QuickLook/` (to install for yourself only).
 You may need to create this directory, if it does not exist.
 
-To get sweet copy/paste functionality while in QuickLook, also run:
+To get sweet copy/paste functionality from QuickLook, also run:
 
     defaults write com.apple.finder QLEnableTextSelection -bool true
 
@@ -38,3 +38,16 @@ from a Terminal window,
 and to refresh installed plugins afterwards:
 
     qlmanage -r
+
+Another method, if you have [Homebrew Cask](http://caskroom.io/) installed:
+
+```sh
+brew update
+brew cask install quickjson
+```
+
+To uninstall:
+
+```sh
+brew cask uninstall quickjson
+```
