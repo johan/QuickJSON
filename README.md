@@ -43,11 +43,11 @@ Another method, if you have [Homebrew Cask](http://caskroom.io/) installed:
 
 ```sh
 brew update
-brew cask install quickjson
+brew install --cask quickjson
 ```
 
 To uninstall:
 
 ```sh
-brew cask uninstall quickjson
+brew uninstall --cask quickjson
 ```
